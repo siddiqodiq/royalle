@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Menu, X, Globe } from "lucide-react"
+import { Menu, X, Globe, Users, Award, Lightbulb } from "lucide-react"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 const translations = {
   id: {
@@ -283,9 +284,19 @@ export default function RoyalleNestPage() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <button
               onClick={() => scrollToSection("hero")}
-              className="font-serif text-xl lg:text-2xl font-bold text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
+              className="font-serif text-lg lg:text-xl font-bold text-foreground hover:text-primary transition-all duration-300 hover:scale-105"
             >
-              ROYALLE NEST
+              <span className="flex items-center gap-3">
+                <Image
+                  src="/logo.svg"
+                  alt="Royalle Nest Logo"
+                  width={80}
+                  height={80}
+                  className="h-12 w-12 lg:h-14 lg:w-14 drop-shadow-sm"
+                  priority
+                />
+                <span>ROYALLE NEST</span>
+              </span>
             </button>
 
             {/* Desktop Navigation */}
@@ -366,7 +377,7 @@ export default function RoyalleNestPage() {
       <section id="hero" className="pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden relative">
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero-bird-nest-nature-background.jpg"
+            src="/bg.png"
             alt="Natural bird nest background"
             className="w-full h-full object-cover"
           />
@@ -404,47 +415,6 @@ export default function RoyalleNestPage() {
                 {t.hero.cta2}
               </Button>
             </div>
-          </div>
-
-          {/* Featured Products Preview */}
-          <div className="mt-20 lg:mt-32 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              {
-                name: t.products.mangkok.name,
-                description: t.products.mangkok.description,
-                image: "/premium-bird-nest-in-bowl-white-natural.jpg",
-              },
-              {
-                name: t.products.indomie.name,
-                description: t.products.indomie.description,
-                image: "/premium-bird-nest-strips-white-natural.jpg",
-              },
-              {
-                name: t.products.lempengan.name,
-                description: t.products.lempengan.description,
-                image: "/premium-bird-nest-sheets-white-natural.jpg",
-              },
-            ].map((product, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden border-border hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group animate-in fade-in slide-in-from-bottom duration-700"
-                style={{ animationDelay: `${400 + index * 150}ms` }}
-              >
-                <div className="aspect-square bg-muted overflow-hidden">
-                  <img
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -506,25 +476,30 @@ export default function RoyalleNestPage() {
                 {t.about.advantagesTitle}
               </h3>
               <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-                {t.about.advantages.map((advantage, index) => (
-                  <Card
-                    key={index}
-                    className={`border-border group hover:shadow-lg hover:-translate-y-2 transition-all duration-500 ${
-                      visibleSections.has("about") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                    }`}
-                    style={{ transitionDelay: `${900 + index * 150}ms` }}
-                  >
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20">
-                        <div className="w-6 h-6 rounded-full bg-primary transition-all duration-500 group-hover:scale-125" />
-                      </div>
-                      <h4 className="font-serif text-lg font-bold text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-                        {advantage.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{advantage.description}</p>
-                    </CardContent>
-                  </Card>
-                ))}
+                {t.about.advantages.map((advantage, index) => {
+                  const icons = [Users, Award, Lightbulb];
+                  const IconComponent = icons[index];
+                  
+                  return (
+                    <Card
+                      key={index}
+                      className={`border-border group hover:shadow-lg hover:-translate-y-2 transition-all duration-500 ${
+                        visibleSections.has("about") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                      }`}
+                      style={{ transitionDelay: `${900 + index * 150}ms` }}
+                    >
+                      <CardContent className="p-6">
+                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20">
+                          <IconComponent className="w-6 h-6 text-primary transition-all duration-500 group-hover:scale-125" />
+                        </div>
+                        <h4 className="font-serif text-lg font-bold text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
+                          {advantage.title}
+                        </h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{advantage.description}</p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -557,7 +532,7 @@ export default function RoyalleNestPage() {
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="aspect-square md:aspect-auto bg-muted overflow-hidden">
                     <img
-                      src="/premium-bird-nest-mangkok-bowl-shape-white-natural.jpg"
+                      src="/royallemangkok.png"
                       alt="Royalle Mangkok"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
@@ -601,7 +576,7 @@ export default function RoyalleNestPage() {
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="aspect-square md:aspect-auto bg-muted md:order-2 overflow-hidden">
                     <img
-                      src="/premium-bird-nest-indomie-strips-white-natural-lux.jpg"
+                      src="/royalleindomie.png"
                       alt="Royalle Indomie"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
@@ -645,7 +620,7 @@ export default function RoyalleNestPage() {
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="aspect-square md:aspect-auto bg-muted overflow-hidden">
                     <img
-                      src="/premium-bird-nest-lempengan-sheets-white-natural-l.jpg"
+                      src="/royallelempengan.png"
                       alt="Royalle Lempengan"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
