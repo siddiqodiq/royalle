@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Menu, X, Globe, Users, Award, Lightbulb, Eye, Target } from "lucide-react"
+import { Menu, X, Globe, Users, Award, Lightbulb, Target, Eye } from "lucide-react"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 
@@ -443,34 +443,34 @@ export default function RoyalleNestPage() {
             </div>
 
             {/* Vision & Mission */}
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16 lg:mb-20">
-              <Card
-                className={`border-border group transition-all duration-700 delay-300 hover:shadow-lg hover:-translate-y-1 ${
-                  visibleSections.has("about") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              >
-                <CardContent className="p-6 lg:p-8">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20">
-                    <Eye className="w-6 h-6 text-primary transition-transform duration-500 group-hover:scale-125" />
-                  </div>
-                  <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-4">{t.about.vision}</h3>
-                  <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">{t.about.visionText}</p>
-                </CardContent>
-              </Card>
-              <Card
-                className={`border-border group transition-all duration-700 delay-500 hover:shadow-lg hover:-translate-y-1 ${
-                  visibleSections.has("about") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              >
-                <CardContent className="p-6 lg:p-8">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20">
-                    <Target className="w-6 h-6 text-primary transition-transform duration-500 group-hover:scale-125" />
-                  </div>
-                  <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-4">{t.about.mission}</h3>
-                  <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">{t.about.missionText}</p>
-                </CardContent>
-              </Card>
-            </div>
+           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16 lg:mb-20">
+  <Card
+    className={`border-border group transition-all duration-700 delay-300 hover:shadow-lg hover:-translate-y-1 ${
+      visibleSections.has("about") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+    }`}
+  >
+    <CardContent className="p-6 lg:p-8">
+      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20">
+        <Eye className="w-6 h-6 text-primary transition-transform duration-500 group-hover:scale-125" />
+      </div>
+      <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-4">{t.about.vision}</h3>
+      <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">{t.about.visionText}</p>
+    </CardContent>
+  </Card>
+  <Card
+    className={`border-border group transition-all duration-700 delay-500 hover:shadow-lg hover:-translate-y-1 ${
+      visibleSections.has("about") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+    }`}
+  >
+    <CardContent className="p-6 lg:p-8">
+      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20">
+        <Target className="w-6 h-6 text-primary transition-transform duration-500 group-hover:scale-125" />
+      </div>
+      <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-4">{t.about.mission}</h3>
+      <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">{t.about.missionText}</p>
+    </CardContent>
+  </Card>
+</div>
 
             {/* Advantages */}
             <div>
@@ -687,7 +687,13 @@ export default function RoyalleNestPage() {
         className={`py-20 lg:py-32 bg-muted/30 transition-all duration-1000 ${
           visibleSections.has("contact") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
-      ></section>
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-12 lg:mb-16 text-center">
+              {t.contact.title}
+            </h2>
+
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
               {/* Contact Information */}
               <div
