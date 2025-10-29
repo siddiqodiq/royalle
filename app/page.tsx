@@ -700,7 +700,7 @@ export default function RoyalleNestPage() {
                   <div className="transition-all duration-300 hover:translate-x-2">
                     <p className="text-sm font-medium text-muted-foreground mb-2">{t.contact.phone}</p>
                     <a
-                      href="tel:+6281262948027"
+                      href="https://wa.me/6281262948027"
                       className="text-base lg:text-lg text-foreground hover:text-primary transition-colors duration-300"
                     >
                       +62 812 6294 8027
@@ -770,7 +770,7 @@ export default function RoyalleNestPage() {
             >
               <div className="aspect-video bg-muted rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-500">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d106.68942995!3d-6.5971469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5d2e602b501%3A0x25a12f0f97fac4ee!2sCiawi%2C%20Bogor%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9663373490434!2d106.8747163!3d-6.703777299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c98668b5972d%3A0xfc67da1d195fe636!2sOmahe%20Pak%20Jo!5e1!3m2!1sid!2sid!4v1761666676934!5m2!1sid!2sid"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
